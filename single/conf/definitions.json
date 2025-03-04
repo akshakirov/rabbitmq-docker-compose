@@ -1,0 +1,69 @@
+{
+  "rabbit_version": "4.0.7",
+  "rabbitmq_version": "4.0.7",
+  "product_name": "RabbitMQ",
+  "product_version": "4.0.7",
+  "rabbitmq_definition_format": "cluster",
+  "original_cluster_name": "rabbit@rabbit",
+  "explanation": "Definitions of cluster 'rabbit@rabbit'",
+  "users": [
+    {
+      "name": "mqadmin",
+      "password_hash": "oLPIzNANqJTnQ12i9CtrIS5bga0Y6Wttl3qFiSe174ST9lZL",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": [
+        "administrator"
+      ],
+      "limits": {
+        
+      }
+    }
+  ],
+  "vhosts": [
+    {
+      "name": "/",
+      "description": "Default virtual host",
+      "metadata": {
+        "description": "Default virtual host",
+        "tags": [
+          
+        ],
+        "default_queue_type": "classic"
+      },
+      "tags": [
+        
+      ],
+      "default_queue_type": "classic"
+    }
+  ],
+  "permissions": [
+    {
+      "user": "mqadmin",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "topic_permissions": [
+    
+  ],
+  "parameters": [
+    
+  ],
+  "global_parameters": [
+
+  ],
+  "policies": [
+    
+  ],
+  "queues": [
+    
+  ],
+  "exchanges": [
+    
+  ],
+  "bindings": [
+    
+  ]
+}

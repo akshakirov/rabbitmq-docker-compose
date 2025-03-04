@@ -1,0 +1,12 @@
+---
+services:
+  haproxy:
+    image: haproxy:3.0.8
+    container_name: haproxy
+    restart: always
+    volumes:
+      - ${PWD}/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    ports:
+      - 15672:15672
+      - 5672:5672
+      - 80:80

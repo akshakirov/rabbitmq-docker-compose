@@ -1,0 +1,31 @@
+---
+x-default-healthcheck: &default-healthcheck
+  interval: 15s
+  timeout: 10s
+  retries: 10
+services:
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=mqadmin
+      - RABBITMQ_DEFAULT_PASS=mqadmin
+      - RABBITMQ_ERLANG_COOKIE=CFIEBHOTMQJDRNWPD92P
+      - RABBITMQ_NODENAME=rabbit@rabbitmq
+      - RABBITMQ_USE_LONGNAME=false
+    ports:
+      - 5671:5671
+      - 5672:5672
+      - 15671:15671
+      - 15672:15672
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+      #      - ./conf/definitions.json:/etc/rabbitmq/definitions.json:ro
+      #      - ./conf/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+    healthcheck:
+      << : *default-healthcheck
+      test: "rabbitmq-diagnostics -q ping > /dev/null 2>&1"
+volumes:
+  rabbitmq_data:
